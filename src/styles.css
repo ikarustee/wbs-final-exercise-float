@@ -38,7 +38,7 @@ h1 {
   font-size: 4.25em;
 }
 h2 {
-  font-size: 2.65em;
+  font-size: 2.15em;
   font-weight: 300;
   line-height: 1;
   margin-bottom: 0.3em;
@@ -67,57 +67,64 @@ a {
 a:hover {
   color: black;
 }
-footer a {
-  color: var(--white);
-}
 ul.menu {
   list-style: none;
+}
+@media screen and (min-width: 768px) {
+  h2 {
+    font-size: 2.65em;
+  }
 }
 /* ================================ */
 /* Grid containers =============== */
 /* ============================== */
 [class^="col-"] {
-  box-sizing: border-box;
-  padding: 1em;
-}
-.col-1 {
-  width: 8.3333%;
-}
-.col-2 {
-  width: 16.6666%;
-}
-.col-3 {
-  width: 25%;
-}
-.col-4 {
-  width: 33.3333%;
-}
-.col-5 {
-  width: 41.6666%;
-}
-.col-6 {
-  width: 50%;
-}
-.col-7 {
-  width: 58.3333%;
-}
-.col-8 {
-  width: 66.6666%;
-}
-.col-9 {
-  width: 75%;
-}
-.col-10 {
-  width: 83.3333%;
-}
-.col-11 {
-  width: 91.6666%;
-}
-.col-12 {
   width: 100%;
 }
-.col-md-2 {
-  width: 20%;
+@media screen and (min-width: 1024px) {
+  [class^="col-"] {
+    box-sizing: border-box;
+    padding: 1em;
+  }
+  .col-1 {
+    width: 8.3333%;
+  }
+  .col-2 {
+    width: 16.6666%;
+  }
+  .col-3 {
+    width: 25%;
+  }
+  .col-4 {
+    width: 33.3333%;
+  }
+  .col-5 {
+    width: 41.6666%;
+  }
+  .col-6 {
+    width: 50%;
+  }
+  .col-7 {
+    width: 58.3333%;
+  }
+  .col-8 {
+    width: 66.6666%;
+  }
+  .col-9 {
+    width: 75%;
+  }
+  .col-10 {
+    width: 83.3333%;
+  }
+  .col-11 {
+    width: 91.6666%;
+  }
+  .col-12 {
+    width: 100%;
+  }
+  .col-md-2 {
+    width: 20%;
+  }
 }
 /* ================================ */
 /* Main containers =============== */
@@ -135,7 +142,7 @@ nav {
   width: 100%;
 }
 header {
-  padding-top: 1.5em;
+  padding: 2em 0 3em;
 }
 nav {
   padding: 1em 0;
@@ -143,6 +150,7 @@ nav {
 }
 nav ul.menu li {
   display: inline-block;
+  font-size: 20px;
   padding: 0.5em 1em;
 }
 nav#secondary {
@@ -165,10 +173,8 @@ main.col-12 {
 }
 #content {
   background-color: var(--white);
-  width: 83.3333%;
-  margin-bottom: 2.5em;
-  padding: 0 15px 2em 15px;
-  float: right;
+  width: 100%;
+  padding: 2em 0 3em;
 }
 #content .row .col-4 {
   display: block;
@@ -185,28 +191,22 @@ article {
   background-repeat: no-repeat;
   background-color: var(--blue);
   background-position: center;
+  background-size: cover;
   background-blend-mode: multiply;
-  width: 100%;
-  max-width: 400px;
-  height: 300px;
-  text-align: center;
   border: 4px solid var(--blue);
+  width: calc(100% - 8px);
+  height: 300px;
+  margin-bottom: 1em;
+  text-align: center;
+  transition: all 300ms ease-in-out;
   -webkit-box-shadow: 0 0 0 4px var(--white) inset;
   -moz-box-shadow: 0 0 0 4px var(--white) inset;
   box-shadow: 0 0 0 4px var(--white) inset;
 }
-.left {
-  float: left;
-  margin: 0 1em 1em 0;
-}
-.right {
-  float: right;
-  margin: 0 0 1em 1em;
-}
 .left h3,
 .right h3 {
   color: var(--white);
-  font-weight: 400;
+  font-weight: 600;
   letter-spacing: 1px;
   position: relative;
   top: calc(50% - 1em);
@@ -226,8 +226,6 @@ article p.clear {
   display: inline;
 }
 aside {
-  clear: both;
-  float: left;
   background-color: var(--lightblue);
   text-align: right;
 }
@@ -235,15 +233,58 @@ aside.col-2 {
   padding: 0;
 }
 footer {
+  padding: 1em 0;
+}
+footer .row .col-md-2 {
+  display: inline-block;
+  padding: 1em 0;
+  width: calc(50% - 1em);
+}
+@media screen and (min-width: 1024px) {
+  #content {
+    float: right;
+    padding: 0 15px 2em 15px;
+    width: 83.3333%;
+  }
+  .left,
+  .right {
+    background-size: 110%;
+    width: 100%;
+    max-width: 400px;
+    height: 300px;
+  }
+  .left {
+    float: left;
+    margin: 0 1em 1em 0;
+  }
+  .right {
+    float: right;
+    margin: 0 0 1em 1em;
+  }
+  .left:hover,
+  .right:hover {
+    background-size: 120%;
+  }
+  aside {
+    clear: both;
+    float: left;
+  }
+  footer .row .col-md-2 {
+    width: calc(20% - 1em);
+  }
+}
+footer {
   background-color: var(--blue);
   clear: both;
-  padding: 0;
   text-align: center;
+}
+footer .col-12 {
+  padding: 0;
+  box-sizing: border-box;
 }
 footer .row {
   padding: 0;
 }
-footer .row .col-md-2 {
-  display: inline-block;
-  width: calc(20% - 1em);
+footer a {
+  color: var(--white);
 }
